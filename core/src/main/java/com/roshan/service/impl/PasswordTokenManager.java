@@ -1,0 +1,19 @@
+package com.roshan.service.impl;
+
+import com.roshan.model.User;
+
+
+public interface PasswordTokenManager {
+
+    /**
+     * {@inheritDoc}
+     */
+    String generateRecoveryToken(User user);
+
+    /**
+     * {@inheritDoc}
+     */
+    boolean isRecoveryTokenValid(User user, String token);
+
+    void invalidateRecoveryToken(User user, String token);
+}
