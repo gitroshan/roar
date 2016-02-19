@@ -12,7 +12,7 @@
 
     <artifactId>roar-web</artifactId>
     <packaging>war</packaging>
-    <name>AppFuse Modular Application - Web (Spring MVC)</name>
+    <name>ROAR Modular Application - Web (Spring MVC)</name>
 
     <build>
         <plugins>
