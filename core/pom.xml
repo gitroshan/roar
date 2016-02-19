@@ -12,7 +12,7 @@
 
     <artifactId>roar-core</artifactId>
     <packaging>jar</packaging>
-    <name>AppFuse Modular Application - Core</name>
+    <name>ROAR Modular Application - Core</name>
 
     <build>
         <plugins>
