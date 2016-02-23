@@ -4,123 +4,74 @@
     <title><fmt:message key="signup.title"/></title>
 </head>
 
-<body class="signup"/>
+<body class="hold-transition register-page">
+	<div class="register-box">
+		<div class="register-logo">
+        	<a href="../../index2.html"><b>Admin</b>LTE</a>
+      	</div>
+      	<div class="register-box-body">
+      		<p class="login-box-msg">Register a new membership</p>
+      		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignup(this)">
+      		
+      		
+    
+          <div class="form-group has-feedback">
+          	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          	<form:password cssClass="form-control" path="password" id="password" showPassword="true" placeholder="Password"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          	<form:input cssClass="form-control" path="passwordHint" id="passwordHint" placeholder="Password Hint"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          	<form:input cssClass="form-control" path="firstName" id="firstName" maxlength="50" placeholder="First Name"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          	<form:input cssClass="form-control" path="lastName" id="lastName" maxlength="50" placeholder="Last Name"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+          	<form:input cssClass="form-control" path="email" id="email" placeholder="Email"/>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <form:input cssClass="form-control" path="phoneNumber" id="phoneNumber" placeholder="Phone Number"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> I agree to the <a href="#">terms</a>
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div><!-- /.col -->
+          </div>
+        </form:form>
+         <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
+          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
+        </div>
+        
+      	<a href="<c:url value="/login"/>" class="text-center">I already have a membership</a>
+      </div><!-- /.form-box -->
+    </div><!-- /.register-box -->
+</body>
 
-<div class="col-sm-2">
-    <h2><fmt:message key="signup.heading"/></h2>
-    <p><fmt:message key="signup.message"/></p>
-</div>
-<div class="col-sm-7">
-    <spring:bind path="user.*">
-        <c:if test="${not empty status.errorMessages}">
-            <div class="alert alert-danger alert-dismissable">
-                <a href="#" data-dismiss="alert" class="close">&times;</a>
-                <c:forEach var="error" items="${status.errorMessages}">
-                    <c:out value="${error}" escapeXml="false"/><br/>
-                </c:forEach>
-            </div>
-        </c:if>
-    </spring:bind>
 
-    <form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off"
-               cssClass="well" onsubmit="return validateSignup(this)">
-        <spring:bind path="user.username">
-        <div class="form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-        </spring:bind>
-            <appfuse:label styleClass="control-label" key="user.username"/>
-            <form:input cssClass="form-control" path="username" id="username" autofocus="true"/>
-            <form:errors path="username" cssClass="help-block"/>
-        </div>
-        <div class="row">
-            <spring:bind path="user.password">
-            <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-            </spring:bind>
-                <appfuse:label styleClass="control-label" key="user.password"/>
-                <form:password cssClass="form-control" path="password" id="password" showPassword="true"/>
-                <form:errors path="password" cssClass="help-block"/>
-            </div>
-            <spring:bind path="user.passwordHint">
-            <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-            </spring:bind>
-                <appfuse:label styleClass="control-label" key="user.passwordHint"/>
-                <form:input cssClass="form-control" path="passwordHint" id="passwordHint"/>
-                <form:errors path="passwordHint" cssClass="help-block"/>
-            </div>
-        </div>
-        <div class="row">
-            <spring:bind path="user.firstName">
-            <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-            </spring:bind>
-                <appfuse:label styleClass="control-label" key="user.firstName"/>
-                <form:input cssClass="form-control" path="firstName" id="firstName" maxlength="50"/>
-                <form:errors path="firstName" cssClass="help-block"/>
-            </div>
-            <spring:bind path="user.lastName">
-            <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-            </spring:bind>
-                <appfuse:label styleClass="control-label" key="user.lastName"/>
-                <form:input cssClass="form-control" path="lastName" id="lastName" maxlength="50"/>
-                <form:errors path="lastName" cssClass="help-block"/>
-            </div>
-        </div>
-        <div class="row">
-            <spring:bind path="user.email">
-            <div class="col-sm-6 form-group${(not empty status.errorMessage) ? ' has-error' : ''}">
-            </spring:bind>
-                <appfuse:label styleClass="control-label" key="user.email"/>
-                <form:input cssClass="form-control" path="email" id="email"/>
-                <form:errors path="email" cssClass="help-block"/>
-            </div>
-            <div class="col-sm-6 form-group">
-                <appfuse:label styleClass="control-label" key="user.phoneNumber"/>
-                <form:input cssClass="form-control" path="phoneNumber" id="phoneNumber"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <appfuse:label styleClass="control-label" key="user.website"/>
-            <form:input cssClass="form-control" path="website" id="website"/>
-        </div>
-        <div>
-            <legend class="accordion-heading">
-                <a data-toggle="collapse" href="#collapse-address"><fmt:message key="user.address.address"/></a>
-            </legend>
-            <div id="collapse-address" class="accordion-body collapse">
-                <div class="form-group">
-                    <appfuse:label styleClass="control-label" key="user.address.address"/>
-                    <form:input cssClass="form-control" path="address.address" id="address.address"/>
-                </div>
-                <div class="row">
-                    <div class="col-sm-7 form-group">
-                        <appfuse:label styleClass="control-label" key="user.address.city"/>
-                        <form:input cssClass="form-control" path="address.city" id="address.city"/>
-                    </div>
-                    <div class="col-sm-2 form-group">
-                        <appfuse:label styleClass="control-label" key="user.address.province"/>
-                        <form:input cssClass="form-control" path="address.province" id="address.province"/>
-                    </div>
-                    <div class="col-sm-3 form-group">
-                        <appfuse:label styleClass="control-label" key="user.address.postalCode"/>
-                        <form:input cssClass="form-control" path="address.postalCode" id="address.postalCode"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <appfuse:label styleClass="control-label" key="user.address.country"/>
-                    <appfuse:country name="address.country" prompt="" default="${user.address.country}"/>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" name="save" onclick="bCancel=false">
-                <i class="icon-ok icon-white"></i> <fmt:message key="button.register"/>
-            </button>
-            <button type="submit" class="btn btn-default" name="cancel" onclick="bCancel=true">
-                <i class="icon-remove"></i> <fmt:message key="button.cancel"/>
-            </button>
-        </div>
-    </form:form>
-</div>
 
 <c:set var="scripts" scope="request">
 <v:javascript formName="signup" staticJavascript="false"/>
 <script type="text/javascript" src="<c:url value="/scripts/validator.jsp"/>"></script>
+<%@ include file="/scripts/components.js"%>
 </c:set>
+
