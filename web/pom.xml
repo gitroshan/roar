@@ -15,6 +15,7 @@
     <name>ROAR Modular Application - Web (Spring MVC)</name>
 
     <build>
+    	<finalName>roar</finalName>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

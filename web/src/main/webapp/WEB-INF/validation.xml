@@ -45,9 +45,28 @@
                 <arg key="user.passwordHint"/>
             </field>
         </form>
-        <form name="signup" extends="user">
+        <form name="signup">
+        	<field property="iAgree" depends="checkbox">
+                <arg key="user.iagree"/>
+                <arg key="signup.agreement"/>
+            </field>
+            <field property="username" depends="required">
+                <arg key="user.username"/>
+            </field>
+            <field property="firstName" depends="required">
+                <arg key="user.firstName"/>
+            </field>
+            <field property="lastName" depends="required">
+                <arg key="user.lastName"/>
+            </field>
+            <field property="email" depends="required,email">
+                <arg key="user.email"/>
+            </field>
             <field property="password" depends="required">
                 <arg key="user.password"/>
+            </field>
+            <field property="passwordHint" depends="required">
+                <arg key="user.passwordHint"/>
             </field>
         </form>
     </formset>

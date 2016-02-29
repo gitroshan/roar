@@ -6,6 +6,9 @@
 </head>
 <body>
 
+<content tag="pageHeader">Page Header</content>
+<content tag="pageHeaderDescription">Optional description</content>
+
 <h2><fmt:message key="home.heading"/></h2>
 <p><fmt:message key="home.message"/></p>
 

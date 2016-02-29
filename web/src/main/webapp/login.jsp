@@ -8,23 +8,28 @@
 
 <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="<c:url value="/home"/>"><b><fmt:message key="webapp.name"/></b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg"><fmt:message key="login.message"/></p>
 
-	<form id="loginForm" action="<c:url value='/j_security_check'/>" method="post" onsubmit="saveUsername(this);return validateForm(this)" autocomplete="off">
+	<form id="loginForm" action="<c:url value='/j_security_check'/>" method="post" onsubmit="saveUsername(this);" autocomplete="off">
           <c:if test="${param.error != null}">
-			    <div class="callout callout-danger">
-			        <fmt:message key="errors.password.mismatch"/>
+			    <div id="loginError" class="callout callout-danger">
+			    	<h4><i class="icon fa fa-ban"></i> <fmt:message key="page.warning"/></h4>
+			        <p><fmt:message key="errors.password.mismatch"/></p>
 			    </div>
 		  </c:if>
+		  <div id="loginError" class="callout callout-danger" style="display: none;">
+			    	<h4><fmt:message key="page.warning"/></h4>
+			        <p><fmt:message key="errors.password.mismatch"/></p>
+			    </div>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="<fmt:message key="label.username"/>" name="j_username" id="j_username" required tabindex="1">
+            <input type="text" class="form-control" placeholder="<fmt:message key="label.username"/>" name="j_username" id="j_username" tabindex="1">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="<fmt:message key="label.password"/>" name="j_password" id="j_password" required tabindex="2">
+            <input type="password" class="form-control" placeholder="<fmt:message key="label.password"/>" name="j_password" id="j_password" tabindex="2">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
@@ -45,8 +50,8 @@
         
         <div class="social-auth-links text-center">
           <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i><fmt:message key='login.facebook'/></a>
+          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i><fmt:message key='login.google'/></a>
         </div><!-- /.social-auth-links -->
 		<br/>
         <p>

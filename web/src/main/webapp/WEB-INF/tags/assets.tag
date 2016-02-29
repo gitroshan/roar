@@ -81,7 +81,6 @@
     <c:otherwise>
       <c:choose>
         <c:when test="${type == 'css'}">
-        
           <link rel="stylesheet" type="text/css" href="${base}/assets/v/${applicationScope.assetsVersion}/${group}.css"/>
         </c:when>
         <c:otherwise>

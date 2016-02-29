@@ -69,6 +69,52 @@
          </javascript>
 
       </validator>
+      
+      <validator name="checkbox"
+            classname="org.springmodules.validation.commons.FieldChecks"
+               method="validateCheckbox"
+         methodParams="java.lang.Object,
+                       org.apache.commons.validator.ValidatorAction,
+                       org.apache.commons.validator.Field,
+                       org.springframework.validation.Errors"
+                  msg="signup.terms.required">
+
+         <javascript><![CDATA[
+            function validateCheckbox(form) {
+                var isValid = true;
+                var focusField = null;
+                var i = 0;
+                var fields = new Array();
+                oCheckbox = new checkbox();
+                for (x in oCheckbox) {
+                    var field = form[oCheckbox[x][0]];
+                    
+                    if (field.type == 'checkbox') {
+                        
+                        var value = field.checked;
+                                                
+                        if (!value) {
+                        
+                            if (i == 0) {
+                                focusField = field;
+                            }
+                            fields[i++] = oCheckbox[x][1];
+                            isValid = false;
+                        }
+                    }
+                }
+                if (fields.length > 0) {
+                   focusField.focus();
+                   var decoded = decodeURIComponent(fields);
+                   alert(decoded);
+                }
+                return isValid;
+            }
+            
+            ]]>
+         </javascript>
+
+      </validator>
 
       <validator name="requiredif"
                  classname="org.springmodules.validation.commons.FieldChecks"
