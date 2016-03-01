@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
     if ($.cookie("username") != null && $.cookie("username") != "") {
         $("#j_username").val($.cookie("username"));
         $("#j_password").focus();
@@ -93,7 +94,6 @@
      if (fields.length > 0) {
         focusField.focus();
         $("#loginErrorJs").html(errorMessage);
-        alert(fields.join('\n'));
      }
 
      return bValid;
