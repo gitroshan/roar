@@ -11,11 +11,19 @@
     }
     
     function validateForm(form) {                                                               
-        var valid = validateRequired(form);
-        if (valid == false) {
-            $(".form-group").addClass('error');
+        
+    	if($("#loginError") != null){
+        	$("#loginError").hide();
         }
-        return valid;
+    	var valid = validateRequired(form);
+    	
+    	if (valid == false) {
+    		if($("#loginErrorJs") != null) {
+    			$("#loginErrorJs").show();
+    	    }
+         }
+    	
+         return valid;
     }
 
     function passwordHint() {
@@ -49,20 +57,42 @@
      var i = 0;
      var fields = new Array();
      oRequired = new required();
+     var errorMessage = "";
 
      for (x in oRequired) {
-         if ((form[oRequired[x][0]].type == 'text' || form[oRequired[x][0]].type == 'textarea' || form[oRequired[x][0]].type == 'select-one' || form[oRequired[x][0]].type == 'radio' || form[oRequired[x][0]].type == 'password') && form[oRequired[x][0]].value == '') {
-            if (i == 0)
-               focusField = form[oRequired[x][0]];
-
-            fields[i++] = oRequired[x][1];
-
-            bValid = false;
+         if ((form[oRequired[x][0]].type == 'text' || 
+        		 form[oRequired[x][0]].type == 'textarea' || 
+        		 form[oRequired[x][0]].type == 'select-one' || 
+        		 form[oRequired[x][0]].type == 'radio' || 
+        		 form[oRequired[x][0]].type == 'password')) {
+        	 
+        	 var divId = oRequired[x][0] + '-form-group';
+			 if ($("#" + divId).hasClass('has-error')) {
+				 $("#" + divId).removeClass('has-error')
+			 }
+				
+        	 if (form[oRequired[x][0]].value == '') {
+				
+				if (i == 0) {
+					focusField = form[oRequired[x][0]];
+				}
+				fields[i++] = oRequired[x][1];
+				$("#" + divId).addClass('has-error');
+			
+				if(errorMessage != ""){
+					errorMessage += "<br/>";
+				}
+				errorMessage += "<i class=\"fa fa-times-circle-o\"></i>&nbsp;" + oRequired[x][1];
+				
+				bValid = false;
+			}
+            
          }
      }
 
      if (fields.length > 0) {
         focusField.focus();
+        $("#loginErrorJs").html(errorMessage);
         alert(fields.join('\n'));
      }
 
