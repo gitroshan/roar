@@ -13,43 +13,43 @@
       		<p class="login-box-msg"><fmt:message key="signup.message"/></p>
       		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignup(this)">
       		
-      		
+      		<div id="loginErrorJs" class="callout callout-danger" style="display: none;"></div>
     
-          <div class="form-group has-feedback">
+          <div id="username-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="password-form-group" class="form-group has-feedback">
           	<form:password cssClass="form-control" path="password" id="password" showPassword="true" placeholder="Password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="passwordHint-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="passwordHint" id="passwordHint" placeholder="Password Hint"/>
             <span class="glyphicon glyphicon-eye-open form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="firstName-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="firstName" id="firstName" maxlength="50" placeholder="First Name"/>
             <span class="glyphicon glyphicon-heart form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="lastName-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="lastName" id="lastName" maxlength="50" placeholder="Last Name"/>
             <span class="glyphicon glyphicon-star form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="email-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="email" id="email" placeholder="Email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="phoneNumber-form-group" class="form-group has-feedback">
             <form:input cssClass="form-control" path="phoneNumber" id="phoneNumber" placeholder="Phone Number"/>
             <span class="glyphicon glyphicon-phone form-control-feedback"></span>
           </div>
-          <div class="form-group has-feedback">
+          <div id="website-form-group" class="form-group has-feedback">
             <form:input cssClass="form-control" path="website" id="website" placeholder="Web Site"/>
             <span class="glyphicon glyphicon-home form-control-feedback"></span>
           </div>
           <div class="row">
             <div class="col-xs-8">
-              <div class="checkbox icheck">
+              <div id="iAgree-form-group" class="checkbox icheck">
                 <label for="iAgree">
                   <input type="checkbox" id="iAgree" name="iAgree"> <fmt:message key="signup.i.agree"/><a href="#"><fmt:message key="signup.terms"/></a>
                 </label>

@@ -11,7 +11,10 @@
         $.cookie("username",theForm.j_username.value, { expires: 30, path: "<c:url value="/"/>"});
     }
     
-    function validateForm(form) {                                                               
+    function validateForm(form) {
+    	
+    	showProgressOverlay('loginBoxBody', '<fmt:message key="loading.sign.in"/>');
+    	saveUsername(form);
         
     	if($("#loginError") != null){
         	$("#loginError").hide();
@@ -21,6 +24,7 @@
     	if (valid == false) {
     		if($("#loginErrorJs") != null) {
     			$("#loginErrorJs").show();
+    			hideProgressOverlay('loginBoxBody');
     	    }
          }
     	
@@ -80,7 +84,7 @@
 				fields[i++] = oRequired[x][1];
 				$("#" + divId).addClass('has-error');
 			
-				if(errorMessage != ""){
+				if(errorMessage != "") {
 					errorMessage += "<br/>";
 				}
 				errorMessage += "<i class=\"fa fa-times-circle-o\"></i>&nbsp;" + oRequired[x][1];
@@ -98,5 +102,28 @@
 
      return bValid;
  }
+ 
+function showProgressOverlay(divId, message){
+	
+	var processingMessage = message;
+	if(processingMessage == null || processingMessage == ''){
+		processingMessage = '<fmt:message key="loading.default"/>';
+	}
+
+	 $('#' + divId).block(
+			 { 
+				 message: '<img class="loader-image" src="<c:url value="/images/loader.gif"/>"/>&nbsp;' + message, 
+				 css: {	
+					 	width:'50%', 
+					 	left:'25%', 
+					 	padding: 5, 
+					 	color: '#666'
+					}
+			 });
+}
+
+function hideProgressOverlay(divId){
+	$('#' + divId).unblock();
+}
     
 </script>

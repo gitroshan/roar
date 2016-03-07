@@ -10,10 +10,10 @@
       <div class="login-logo">
         <a href="<c:url value="/home"/>"><b><fmt:message key="webapp.name"/></b></a>
       </div><!-- /.login-logo -->
-      <div class="login-box-body">
+      <div id="loginBoxBody" class="login-box-body">
         <p class="login-box-msg"><fmt:message key="login.message"/></p>
 
-	<form id="loginForm" action="<c:url value='/j_security_check'/>" method="post" autocomplete="off" onsubmit="saveUsername(this);return validateForm(this)">
+	<form id="loginForm" action="<c:url value='/j_security_check'/>" method="post" autocomplete="off" onsubmit="return validateForm(this)">
           
           <c:if test="${param.error != null}">
 			    <div id="loginError" class="callout callout-danger">
@@ -22,11 +22,9 @@
 			    </div>
 		  </c:if>
 
-		  <div id="loginErrorJs" class="callout callout-danger" style="display: none;">
+		  <div id="loginErrorJs" class="callout callout-danger" style="display: none;"></div>
 			  
-		  </div>
-
-          <div id="j_username-form-group" class="form-group has-feedback">
+		  <div id="j_username-form-group" class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="<fmt:message key="label.username"/>" name="j_username" id="j_username" tabindex="1">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>

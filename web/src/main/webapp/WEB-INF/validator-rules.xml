@@ -86,7 +86,16 @@
                 var i = 0;
                 var fields = new Array();
                 oCheckbox = new checkbox();
+                var errorMessage = "";
+                
+                
+			 
                 for (x in oCheckbox) {
+                
+	                var divId = oCheckbox[x][0] + '-form-group';
+					if ($("#" + divId).hasClass('has-error')) {
+						$("#" + divId).removeClass('has-error')
+					}
                     var field = form[oCheckbox[x][0]];
                     
                     if (field.type == 'checkbox') {
@@ -99,6 +108,13 @@
                                 focusField = field;
                             }
                             fields[i++] = oCheckbox[x][1];
+                            
+                            $("#" + divId).addClass('has-error');
+                            if(errorMessage != "") {
+								errorMessage += "<br/>";
+							}
+							errorMessage += "<i class=\"fa fa-times-circle-o\"></i>&nbsp;" + oCheckbox[x][1];
+							
                             isValid = false;
                         }
                     }
@@ -106,7 +122,7 @@
                 if (fields.length > 0) {
                    focusField.focus();
                    var decoded = decodeURIComponent(fields);
-                   alert(decoded);
+                   $("#loginErrorJs").html(errorMessage);
                 }
                 return isValid;
             }
