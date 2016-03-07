@@ -23,6 +23,7 @@
 
 
           
-<%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>    
+<%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>   
+<%@ include file="/common/preLoad.jsp" %> 
 </body>
 </html>

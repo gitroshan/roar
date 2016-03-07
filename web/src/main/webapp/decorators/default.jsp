@@ -314,5 +314,6 @@
     </div><!-- ./wrapper -->	
     <t:assets type="js"/>    
 <%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>    
+<%@ include file="/common/preLoad.jsp" %>
 </body>
 </html>
