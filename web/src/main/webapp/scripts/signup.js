@@ -2,7 +2,7 @@
 
 function validateSignUpForm(form) {
 	
-	// showProgressOverlay('register-box-body', '<fmt:message key="loading.sign.in"/>');
+	showProgressOverlay('register-box-body', '<fmt:message key="loading.sign.in"/>');
 	    
 	if($("#signUpError") != null){
     	$("#signUpError").hide();
@@ -16,7 +16,7 @@ function validateSignUpForm(form) {
 //			hideProgressOverlay('register-box-body');
 //	    }
 //     }
-	// hideProgressOverlay('register-box-body');
+	 hideProgressOverlay('register-box-body');
      return valid;
 }
 
