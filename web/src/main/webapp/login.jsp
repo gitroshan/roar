@@ -64,9 +64,9 @@
 		<p><fmt:message key="updatePassword.requestRecoveryTokenLink"/></p>
         
         <c:set var="scripts" scope="request">
-<%@ include file="/scripts/login.js"%>
-<%@ include file="/scripts/components.js"%>
-</c:set>
+			<%@ include file="/scripts/login.js"%>
+			<%@ include file="/scripts/components.js"%>
+		</c:set>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

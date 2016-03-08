@@ -9,11 +9,11 @@
 		<div class="register-logo">
 			<a href="<c:url value="/home"/>"><b><fmt:message key="webapp.name"/></b></a>
       	</div>
-      	<div class="register-box-body">
+      	<div id="register-box-body" class="register-box-body">
       		<p class="login-box-msg"><fmt:message key="signup.message"/></p>
-      		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignup(this)">
+      		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignUpForm(this)">
       		
-      		<div id="loginErrorJs" class="callout callout-danger" style="display: none;"></div>
+      		<div id="signUpErrorJs" class="callout callout-danger" style="display: none;"></div>
     
           <div id="username-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>
@@ -76,6 +76,7 @@
 <c:set var="scripts" scope="request">
 <v:javascript formName="signup" staticJavascript="false"/>
 <script type="text/javascript" src="<c:url value="/scripts/validator.jsp"/>"></script>
+<%@ include file="/scripts/signup.js"%>
 <%@ include file="/scripts/components.js"%>
 </c:set>
 

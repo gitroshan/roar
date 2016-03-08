@@ -17,7 +17,7 @@
         <js>/assets/jQuery/jquery.blockUI.js</js>
         <js>/assets/bootstrap/js/bootstrap.min.js</js>
         <js>classpath:META-INF/resources/webjars/jquery-cookie/1.3.1/jquery.cookie.js</js>
-<!--         <js>/scripts/app.min.js</js> -->
+        <js>/scripts/script.js</js>
         <js>/assets/iCheck/icheck.min.js</js>
         
     </group>
