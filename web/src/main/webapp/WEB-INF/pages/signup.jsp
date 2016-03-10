@@ -13,7 +13,13 @@
       		<p class="login-box-msg"><fmt:message key="signup.message"/></p>
       		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignUpForm(this)">
       		
-      		<div id="signUpErrorJs" class="callout callout-danger" style="display: none;"></div>
+      		<c:if test="${param.error != null}">
+			    <div id="signupError" class="callout callout-danger">
+			    	<h4><i class="icon fa fa-ban"></i> <fmt:message key="page.warning"/></h4>
+			        <p>${param.error}</p>
+			    </div>
+		  	</c:if>
+      		<div id="signupFormErrorJs" class="callout callout-danger" style="display: none;"></div>
     
           <div id="username-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>

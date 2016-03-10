@@ -16,14 +16,15 @@
     	showProgressOverlay('loginBoxBody', '<fmt:message key="loading.sign.in"/>');
     	saveUsername(form);
         
-    	if($("#loginError") != null){
-        	$("#loginError").hide();
+    	if($("#" + form.id + "Error") != null){
+    		$("#" + form.id + "Error").hide();
         }
+    	
     	var valid = validateRequired(form);
     	
-    	if (valid == false) {
-    		if($("#loginErrorJs") != null) {
-    			$("#loginErrorJs").show();
+    	if (!valid) {
+    		if($("#" + form.id + "ErrorJs") != null) {
+    			$("#" + form.id + "ErrorJs").show();
     			hideProgressOverlay('loginBoxBody');
     	    }
          }
@@ -97,7 +98,7 @@
 
      if (fields.length > 0) {
         focusField.focus();
-        $("#loginErrorJs").html(errorMessage);
+        $("#" + form.id + "ErrorJs").html(errorMessage);
      }
 
      return bValid;

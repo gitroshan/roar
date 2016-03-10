@@ -49,10 +49,6 @@
         	<field property="iAgree" depends="checkbox">
                 <arg key="user.iagree"/>
                 <arg key="signup.agreement"/>
-                <var>
-                	<var-name>errorDiv</var-name>
-                	<var-value>signUpErrorJs</var-value>
-                </var>
             </field>
             <field property="username" depends="required">
                 <arg key="user.username"/>

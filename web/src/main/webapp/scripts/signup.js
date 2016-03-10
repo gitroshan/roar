@@ -4,8 +4,11 @@ function validateSignUpForm(form) {
 	
 	showProgressOverlay('register-box-body', '<fmt:message key="loading.sign.up"/>');
 	    
-	if($("#signUpError") != null){
-    	$("#signUpError").hide();
+	if($("#" + form.id + "Error") != null){
+    	$("#" + form.id + "Error").hide();
+    }
+	if($("#" + form.id + "ErrorJs") != null){
+    	$("#" + form.id + "ErrorJs").hide();
     }
 	
 	var valid = validateSignup(form);

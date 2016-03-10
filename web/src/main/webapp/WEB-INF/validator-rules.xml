@@ -113,12 +113,13 @@
                     }
                 }
                 if (fields.length > 0) {
+                   
                    focusField.focus();
-                   $("#" + oCheckbox[x][2]('errorDiv')).html(errorMessage);
-				   $("#" + oCheckbox[x][2]('errorDiv')).show();
-					
-	   
-                }
+                   $("#" + form.id + "ErrorJs").html(errorMessage);
+				   $("#" + form.id + "ErrorJs").show();
+				
+				}
+				
                 return isValid;
             }
             
