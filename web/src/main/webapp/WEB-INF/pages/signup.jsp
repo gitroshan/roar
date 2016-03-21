@@ -10,6 +10,7 @@
 			<a href="<c:url value="/home"/>"><b><fmt:message key="webapp.name"/></b></a>
       	</div>
       	<div id="register-box-body" class="register-box-body">
+      		<div id="signupFormFocus" tabindex="-1" ></div>
       		<p class="login-box-msg"><fmt:message key="signup.message"/></p>
       		<form:form commandName="user" method="post" action="signup" id="signupForm" autocomplete="off" onsubmit="return validateSignUpForm(this)">
       		
@@ -19,14 +20,18 @@
 			        <p>${param.error}</p>
 			    </div>
 		  	</c:if>
-      		<div id="signupFormErrorJs" class="callout callout-danger" style="display: none;" tabindex="-1"></div>
+      		<div id="signupFormErrorJs" class="callout callout-danger" style="display: none;" ></div>
     
           <div id="username-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
           <div id="password-form-group" class="form-group has-feedback">
-          	<form:password cssClass="form-control" path="password" id="password" showPassword="true" placeholder="Password"/>
+          	<form:password cssClass="form-control" path="password" id="password" placeholder="Password"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div id="confirmPassword-form-group" class="form-group has-feedback">
+          	<form:password cssClass="form-control" path="confirmPassword" id="confirmPassword" placeholder="Confirm Password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div id="passwordHint-form-group" class="form-group has-feedback">

@@ -22,6 +22,7 @@
                 var i = 0;
                 var fields = new Array();
                 oTwoFields = new twofields();
+                var errorMessage = "";
                 for (x in oTwoFields) {
                     var field = form[oTwoFields[x][0]];
                     var secondField = form[oTwoFields[x][2]("secondProperty")];
@@ -31,6 +32,11 @@
                         field.type == 'select-one' ||
                         field.type == 'radio' ||
                         field.type == 'password') {
+                        
+                        var divId = oTwoFields[x][0] + '-form-group';
+						if ($("#" + divId).hasClass('has-error')) {
+							$("#" + divId).removeClass('has-error')
+						}
                         
                         var value;
                         var secondValue;
@@ -50,13 +56,22 @@
                                 focusField = field;
                             }
                             fields[i++] = oTwoFields[x][1];
+                            
+                             $("#" + divId).addClass('has-error');
+                            
+                            if(errorMessage != "") {
+								errorMessage += "<br/>";
+							}
+							errorMessage += "<i class=\"fa fa-times-circle-o\"></i>&nbsp;" + decodeURIComponent(oTwoFields[x][1]);
+							
                             bValid = false;
                         }
                     }
                 }
                 if (fields.length > 0) {
                    focusField.focus();
-                   alert(fields.join('\n'));
+                   $("#" + form.id + "ErrorJs").html(errorMessage);
+				   $("#" + form.id + "ErrorJs").show();
                 }
                 return bValid;
             }]]>

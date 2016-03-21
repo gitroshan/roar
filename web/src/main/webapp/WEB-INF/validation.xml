@@ -53,6 +53,20 @@
             <field property="username" depends="required">
                 <arg key="user.username"/>
             </field>
+            <field property="password" depends="required">
+                <arg key="user.password"/>
+            </field>
+            <field property="confirmPassword" depends="required, twofields">
+                <arg key="user.confirmPassword.lower"/>
+                <arg key="user.password.lower"/>
+                <var>
+             		<var-name>secondProperty</var-name>
+             		<var-value>password</var-value>
+          		</var>
+            </field>
+            <field property="passwordHint" depends="required">
+                <arg key="user.passwordHint"/>
+            </field>
             <field property="firstName" depends="required">
                 <arg key="user.firstName"/>
             </field>
@@ -62,12 +76,8 @@
             <field property="email" depends="required,email">
                 <arg key="user.email"/>
             </field>
-            <field property="password" depends="required">
-                <arg key="user.password"/>
-            </field>
-            <field property="passwordHint" depends="required">
-                <arg key="user.passwordHint"/>
-            </field>
+            
+            
         </form>
     </formset>
 </form-validation>

@@ -129,9 +129,11 @@
                 }
                 if (fields.length > 0) {
                    
+                   $("#" + form.id + "Focus").removeClass('hidden');
                    $("#" + form.id + "ErrorJs").html(errorMessage);
 				   $("#" + form.id + "ErrorJs").show();
-				   $("#" + form.id + "ErrorJs").focus();
+				   $("#" + form.id + "Focus").focus();
+				   $("#" + form.id + "Focus").addClass('hidden');
 				
 				}
 				
