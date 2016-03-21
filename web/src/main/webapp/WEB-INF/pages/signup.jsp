@@ -19,7 +19,7 @@
 			        <p>${param.error}</p>
 			    </div>
 		  	</c:if>
-      		<div id="signupFormErrorJs" class="callout callout-danger" style="display: none;"></div>
+      		<div id="signupFormErrorJs" class="callout callout-danger" style="display: none;" tabindex="-1"></div>
     
           <div id="username-form-group" class="form-group has-feedback">
           	<form:input cssClass="form-control" path="username" id="username" autofocus="true" placeholder="Username"/>
@@ -83,6 +83,5 @@
 <v:javascript formName="signup" staticJavascript="false"/>
 <script type="text/javascript" src="<c:url value="/scripts/validator.jsp"/>"></script>
 <%@ include file="/scripts/signup.js"%>
-<%@ include file="/scripts/components.js"%>
 </c:set>
 

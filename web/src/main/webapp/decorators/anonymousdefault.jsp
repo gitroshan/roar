@@ -24,6 +24,7 @@
 
           
 <%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>   
-<%@ include file="/common/preLoad.jsp" %> 
+<%@ include file="/scripts/components.js"%>
+	
 </body>
 </html>

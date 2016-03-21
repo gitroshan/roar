@@ -65,7 +65,6 @@
         
         <c:set var="scripts" scope="request">
 			<%@ include file="/scripts/login.js"%>
-			<%@ include file="/scripts/components.js"%>
 		</c:set>
 
       </div><!-- /.login-box-body -->

@@ -22,6 +22,7 @@
                 var i = 0;
                 var fields = new Array();
                 oRequired = new required();
+                var errorMessage = "";
                 for (x in oRequired) {
                     var field = form[oRequired[x][0]];
                     
@@ -31,6 +32,11 @@
                         field.type == 'select-one' ||
                         field.type == 'radio' ||
                         field.type == 'password') {
+                        
+                        var divId = oRequired[x][0] + '-form-group';
+						if ($("#" + divId).hasClass('has-error')) {
+							$("#" + divId).removeClass('has-error')
+						}
                         
                         var value = '';
                         // get field's value
@@ -49,13 +55,22 @@
                                 focusField = field;
                             }
                             fields[i++] = oRequired[x][1];
+                            
+                            $("#" + divId).addClass('has-error');
+                            
+                            if(errorMessage != "") {
+								errorMessage += "<br/>";
+							}
+							errorMessage += "<i class=\"fa fa-times-circle-o\"></i>&nbsp;" + decodeURIComponent(oRequired[x][1]);
+							
                             isValid = false;
                         }
                     }
                 }
                 if (fields.length > 0) {
                    focusField.focus();
-                   alert(fields.join('\n'));
+                   $("#" + form.id + "ErrorJs").html(errorMessage);
+				   $("#" + form.id + "ErrorJs").show();
                 }
                 return isValid;
             }
@@ -114,9 +129,9 @@
                 }
                 if (fields.length > 0) {
                    
-                   focusField.focus();
                    $("#" + form.id + "ErrorJs").html(errorMessage);
 				   $("#" + form.id + "ErrorJs").show();
+				   $("#" + form.id + "ErrorJs").focus();
 				
 				}
 				
