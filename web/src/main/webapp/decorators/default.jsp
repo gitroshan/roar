@@ -20,7 +20,7 @@
       	<!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b><spring:message code="company.short.name"/></b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b><spring:message code="company.name"/></b></span>
         </a>
@@ -63,7 +63,8 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                          	
+                            <img src="<c:url value="/images/user3-128x128.jpg"/>" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             AdminLTE Design Team
@@ -75,7 +76,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="<c:url value="/images/user4-128x128.jpg"/>" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Developers
@@ -87,7 +88,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="<c:url value="/images/user3-128x128.jpg"/>" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Sales Department
@@ -99,7 +100,7 @@
                       <li>
                         <a href="#">
                           <div class="pull-left">
-                            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                            <img src="<c:url value="/images/user4-128x128.jpg"/>" class="img-circle" alt="User Image">
                           </div>
                           <h4>
                             Reviewers
