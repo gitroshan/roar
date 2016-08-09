@@ -452,10 +452,11 @@
             <decorator:getProperty property="page.pageHeader"/>&nbsp;
             <small><decorator:getProperty property="page.pageHeaderDescription"/></small>
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
+          <decorator:getProperty property="page.breadcrumb"/>
+<!--           <ol class="breadcrumb"> -->
+<!--             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--             <li class="active">Dashboard</li> -->
+<!--           </ol> -->
         </section>
 
         <!-- Main content -->

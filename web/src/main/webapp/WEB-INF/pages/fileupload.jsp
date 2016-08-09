@@ -5,10 +5,16 @@
     <meta name="menu" content="AdminMenu"/>
 </head>
 
-<div class="col-sm-3">
-    <h2><fmt:message key="upload.heading"/></h2>
-    <p><fmt:message key="upload.message"/></p>
-</div>
+<content tag="pageHeader"><fmt:message key="upload.heading"/></content>
+<content tag="pageHeaderDescription"><fmt:message key="upload.message"/></content>
+
+<content tag="breadcrumb">
+	<ol class="breadcrumb">
+    	<li><a href="<c:url value="/home" />"><i class="fa fa-dashboard"></i><fmt:message key="home.title"/></a></li>
+        <li class="active"><fmt:message key="upload.title"/></li>
+    </ol>
+</content>
+
 <div class="col-sm-7">
     <spring:bind path="fileUpload.*">
         <c:if test="${not empty status.errorMessages}">

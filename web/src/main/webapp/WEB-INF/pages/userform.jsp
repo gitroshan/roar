@@ -5,6 +5,13 @@
     <meta name="menu" content="UserMenu"/>
 </head>
 
+<content tag="breadcrumb">
+	<ol class="breadcrumb">
+    	<li><a href="<c:url value="/home" />"><i class="fa fa-dashboard"></i><fmt:message key="home.title"/></a></li>
+        <li class="active"><fmt:message key="userProfile.title"/></li>
+    </ol>
+</content>
+
 <c:set var="delObject" scope="request"><fmt:message key="userList.user"/></c:set>
 <script type="text/javascript">var msgDelConfirm =
    "<fmt:message key="delete.confirm"><fmt:param value="${delObject}"/></fmt:message>";
