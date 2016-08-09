@@ -11,13 +11,13 @@
 </script>
 
 <div>
-    <h2><fmt:message key="userProfile.heading"/></h2>
+    <content tag="pageHeader"><fmt:message key="userProfile.heading"/></content>
     <c:choose>
         <c:when test="${param.from == 'list'}">
-            <p><fmt:message key="userProfile.admin.message"/></p>
+            <content tag="pageHeaderDescription"><fmt:message key="userProfile.admin.message"/></content>
         </c:when>
         <c:otherwise>
-            <p><fmt:message key="userProfile.message"/></p>
+            <content tag="pageHeaderDescription"><fmt:message key="userProfile.message"/></content>
         </c:otherwise>
     </c:choose>
 </div>

@@ -18,7 +18,7 @@
 		<!-- Main Header -->
       <header class="main-header">
       	<!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="<c:url value="/home"/>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b><spring:message code="company.short.name"/></b></span>
           <!-- logo for regular state and mobile devices -->
@@ -449,7 +449,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            <decorator:getProperty property="page.pageHeader"/>
+            <decorator:getProperty property="page.pageHeader"/>&nbsp;
             <small><decorator:getProperty property="page.pageHeaderDescription"/></small>
           </h1>
           <ol class="breadcrumb">
