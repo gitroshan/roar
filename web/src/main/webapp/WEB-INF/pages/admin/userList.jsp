@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="userList.title"/></title>
     <meta name="menu" content="AdminMenu"/>
+    <meta name="currentPage" content="ViewUsers"/>
 </head>
 
 <c:if test="${not empty searchError}">

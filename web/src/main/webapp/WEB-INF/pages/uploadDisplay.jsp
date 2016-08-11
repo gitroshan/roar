@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="display.title"/></title>
     <meta name="menu" content="AdminMenu"/>
+    <meta name="currentPage" content="FileUpload"/>
 </head>
 
 <div class="col-sm-10">

@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="upload.title"/></title>
     <meta name="menu" content="AdminMenu"/>
+    <meta name="currentPage" content="FileUpload"/>
 </head>
 
 <content tag="pageHeader"><fmt:message key="upload.heading"/></content>

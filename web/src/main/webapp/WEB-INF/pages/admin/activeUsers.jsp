@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="activeUsers.title"/></title>
     <meta name="menu" content="AdminMenu"/>
+    <meta name="currentPage" content="ActiveUsers"/>
 </head>
 <body id="activeUsers">
 

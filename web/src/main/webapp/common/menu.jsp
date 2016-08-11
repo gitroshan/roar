@@ -1,17 +1,72 @@
 <%@ include file="/common/taglibs.jsp"%>
+<security:authentication property="principal" var="principal" />
+<li>
+	<a href="<c:url value="/home"/>"> 
+		<i class="fa fa-calendar"></i>
+		<span>
+			<fmt:message key="home.title"/>
+		</span> 
+	</a>
+</li>
+<li>
+	<a href="<c:url value="/userform"/>"> 
+		<i class="fa fa-envelope"></i>
+		<span>
+			<fmt:message key="menu.user"/>
+		</span> 
+	</a>
+</li>
+<c:if test="${principal.authorities == '[ROLE_ADMIN]' }">
+<c:choose>
+	<c:when test="${currentMenu == 'AdminMenu'}"><li class="active treeview"></c:when>
+	<c:otherwise><li class="treeview"></c:otherwise>
+</c:choose>
 
-<menu:useMenuDisplayer name="Velocity" config="navbarMenu.vm" permissions="rolesAdapter">
-<div class="collapse navbar-collapse" id="navbar">
-<ul class="nav navbar-nav">
-    <c:if test="${empty pageContext.request.remoteUser}">
-        <li class="active">
-            <a href="<c:url value="/login"/>"><fmt:message key="login.title"/></a>
-        </li>
-    </c:if>
-    <menu:displayMenu name="Home"/>
-    <menu:displayMenu name="UserMenu"/>
-    <menu:displayMenu name="AdminMenu"/>
-    <menu:displayMenu name="Logout"/>
-</ul>
-</div>
-</menu:useMenuDisplayer>
+	<a href="#"> 
+		<i class="fa fa-dashboard"></i>
+		<span>
+			<fmt:message key="menu.admin"/>
+		</span> 
+		<i class="fa fa-angle-left pull-right"></i>
+	</a>
+	<ul class="treeview-menu">
+		<c:choose>
+			<c:when test="${currentPage == 'ViewUsers'}"><li class="active"></c:when>
+			<c:otherwise><li></c:otherwise>
+		</c:choose>
+		
+			<a href="<c:url value="/admin/users"/>">
+				<i class="fa fa-circle-o"></i> 
+				<fmt:message key="menu.admin.users"/>
+			</a>
+		</li>
+		<c:choose>
+			<c:when test="${currentPage == 'ActiveUsers'}"><li class="active"></c:when>
+			<c:otherwise><li></c:otherwise>
+		</c:choose>
+			<a href="<c:url value="/admin/activeUsers"/>">
+				<i class="fa fa-circle-o"></i>
+				<fmt:message key="home.activeUsers"/>
+			</a>
+		</li>
+		<c:choose>
+			<c:when test="${currentPage == 'ReloadContext'}"><li class="active"></c:when>
+			<c:otherwise><li></c:otherwise>
+		</c:choose>
+			<a href="<c:url value="/admin/reload"/>">
+				<i class="fa fa-circle-o"></i>
+				<fmt:message key="menu.admin.reload"/>
+			</a>
+		</li>
+		<c:choose>
+			<c:when test="${currentPage == 'FileUpload'}"><li class="active"></c:when>
+			<c:otherwise><li></c:otherwise>
+		</c:choose>
+			<a href="<c:url value="/fileupload"/>">
+				<i class="fa fa-circle-o"></i>
+				<fmt:message key="menu.selectFile"/>
+			</a>
+		</li>
+	</ul>
+</li>
+</c:if>

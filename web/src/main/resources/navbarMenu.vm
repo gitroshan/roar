@@ -4,11 +4,16 @@
     ## set menu title
     #set ($title = $displayer.getMessage($menu.title))
     #if (!$menu.url) #set ($url="javascript:void(0)") #else #set ($url=$menu.url) #end
+    #set ($iconClass = $menu.iconClass)
 
     ## create a single menu item
     #if ($menu.components.size() == 0)
         <li class="#if ($menu.name == $currentMenu)active#end">
-        <a href="$url" title="$title" #if($menu.target)target="$menu.target" #end#if($menu.width)style="width: ${menu.width}px"#end>${title}</a>
+        
+
+		              
+		              
+        <a href="$url" title="$title" #if($menu.target)target="$menu.target" #end#if($menu.width)style="width: ${menu.width}px"#end><span>${iconClass}</span></a>
     #else ## create multiple menu items in a menu
         #if ($menu.components.size() > 0)
             #set ($hasViewableChildren = false)
