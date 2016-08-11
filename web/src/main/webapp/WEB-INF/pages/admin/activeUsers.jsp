@@ -7,10 +7,18 @@
 </head>
 <body id="activeUsers">
 
-<div class="col-sm-10">
-    <h2><fmt:message key="activeUsers.heading"/></h2>
+<content tag="pageHeader"><fmt:message key="activeUsers.heading"/></content>
+<content tag="pageHeaderDescription"><fmt:message key="activeUsers.message"/></content>
 
-    <p><fmt:message key="activeUsers.message"/></p>
+<content tag="breadcrumb">
+	<ol class="breadcrumb">
+    	<li><a href="<c:url value="/home" />"><i class="fa fa-dashboard"></i><fmt:message key="home.title"/></a></li>
+        <li class="active"><fmt:message key="home.activeUsers"/></li>
+    </ol>
+</content>
+
+<div class="col-sm-10">
+
 
     <div id="actions" class="form-group">
         <a href="${ctx}/home" class="btn btn-primary">

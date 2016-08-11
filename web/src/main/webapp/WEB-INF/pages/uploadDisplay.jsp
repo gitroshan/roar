@@ -6,9 +6,18 @@
     <meta name="currentPage" content="FileUpload"/>
 </head>
 
+<content tag="pageHeader"><fmt:message key="display.heading"/></content>
+<content tag="pageHeaderDescription">Below is a list of attributes that were gathered in FileUploadController.java.</content>
+
+<content tag="breadcrumb">
+	<ol class="breadcrumb">
+    	<li><a href="<c:url value="/home" />"><i class="fa fa-dashboard"></i><fmt:message key="home.title"/></a></li>
+        <li class="active"><fmt:message key="display.heading"/></li>
+    </ol>
+</content>
+
 <div class="col-sm-10">
-    <h2><fmt:message key="display.heading"/></h2>
-    <p>Below is a list of attributes that were gathered in FileUploadController.java.</p>
+
 
     <table class="table-striped" cellpadding="5">
         <tr>

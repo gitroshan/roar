@@ -6,6 +6,18 @@
     <meta name="currentPage" content="ViewUsers"/>
 </head>
 
+<content tag="pageHeader"><fmt:message key="userList.heading"/></content>
+<content tag="pageHeaderDescription"></content>
+
+<content tag="breadcrumb">
+	<ol class="breadcrumb">
+    	<li><a href="<c:url value="/home" />"><i class="fa fa-dashboard"></i><fmt:message key="home.title"/></a></li>
+        <li class="active"><fmt:message key="menu.admin.users"/></li>
+    </ol>
+</content>
+
+
+
 <c:if test="${not empty searchError}">
     <div class="alert alert-danger alert-dismissable">
         <a href="#" data-dismiss="alert" class="close">&times;</a>
@@ -14,7 +26,7 @@
 </c:if>
 
 <div class="col-sm-10">
-    <h2><fmt:message key="userList.heading"/></h2>
+    
 
     <form method="get" action="${ctx}/admin/users" id="searchForm" class="form-inline">
     <div id="search" class="text-right">

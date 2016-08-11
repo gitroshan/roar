@@ -1,5 +1,4 @@
 <%@ include file="/common/taglibs.jsp"%>
-<security:authentication property="principal" var="principal" />
 <li>
 	<a href="<c:url value="/home"/>"> 
 		<i class="fa fa-dashboard"></i>
@@ -16,7 +15,8 @@
 		</span> 
 	</a>
 </li>
-<c:if test="${principal.authorities == '[ROLE_ADMIN]' }">
+
+<security:authorize ifAllGranted="ROLE_ADMIN">
 <c:choose>
 	<c:when test="${currentMenu == 'AdminMenu'}"><li class="active treeview"></c:when>
 	<c:otherwise><li class="treeview"></c:otherwise>
@@ -69,4 +69,5 @@
 		</li>
 	</ul>
 </li>
-</c:if>
+
+</security:authorize>
