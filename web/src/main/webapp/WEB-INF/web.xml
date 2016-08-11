@@ -165,9 +165,6 @@
     <listener>
         <listener-class>com.roshan.webapp.jsp.EscapeXmlELResolverListener</listener-class>
     </listener>
-    <listener>
-        <listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
-    </listener>
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>
