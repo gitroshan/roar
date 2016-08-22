@@ -1,5 +1,9 @@
 <%@ include file="/common/taglibs.jsp"%>
-<li>
+<security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+<c:choose>
+	<c:when test="${currentPage == 'Home'}"><li class="active"></c:when>
+	<c:otherwise><li></c:otherwise>
+</c:choose>
 	<a href="<c:url value="/home"/>"> 
 		<i class="fa fa-dashboard"></i>
 		<span>
@@ -7,7 +11,10 @@
 		</span> 
 	</a>
 </li>
-<li>
+<c:choose>
+	<c:when test="${currentPage == 'UserForm'}"><li class="active"></c:when>
+	<c:otherwise><li></c:otherwise>
+</c:choose>
 	<a href="<c:url value="/userform"/>"> 
 		<i class="fa fa-pencil-square-o"></i>
 		<span>
@@ -15,7 +22,18 @@
 		</span> 
 	</a>
 </li>
-
+<c:choose>
+	<c:when test="${currentPage == 'ProfilePicture'}"><li class="active"></c:when>
+	<c:otherwise><li></c:otherwise>
+</c:choose>
+	<a href="<c:url value="/profilepicture"/>"> 
+		<i class="fa fa-picture-o"></i>
+		<span>
+			<fmt:message key="menu.profilePicture"/>
+		</span> 
+	</a>
+</li>
+</security:authorize>
 <security:authorize ifAllGranted="ROLE_ADMIN">
 <c:choose>
 	<c:when test="${currentMenu == 'AdminMenu'}"><li class="active treeview"></c:when>

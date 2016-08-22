@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="home.title"/></title>
     <meta name="menu" content="Home"/>
+    <meta name="currentPage" content="Home"/>
 </head>
 <body>
 

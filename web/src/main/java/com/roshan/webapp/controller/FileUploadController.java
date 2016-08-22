@@ -1,6 +1,12 @@
 package com.roshan.webapp.controller;
 
-import com.roshan.Constants;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,11 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.roshan.Constants;
 
 /**
  * Controller class to upload Files.
@@ -36,12 +38,13 @@ public class FileUploadController extends BaseFormController {
     @ModelAttribute
     @RequestMapping(method = RequestMethod.GET)
     public FileUpload showForm() {
+
+        // IOUtils.toByteArray(InputStream input).
         return new FileUpload();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String onSubmit(FileUpload fileUpload, BindingResult errors, HttpServletRequest request)
-            throws Exception {
+    public String onSubmit(FileUpload fileUpload, BindingResult errors, HttpServletRequest request) throws Exception {
 
         if (request.getParameter("cancel") != null) {
             return getCancelView();
@@ -57,8 +60,7 @@ public class FileUploadController extends BaseFormController {
 
         // validate a file was entered
         if (fileUpload.getFile().length == 0) {
-            Object[] args =
-                    new Object[]{getText("uploadForm.file", request.getLocale())};
+            Object[] args = new Object[] {getText("uploadForm.file", request.getLocale())};
             errors.rejectValue("file", "errors.required", args, "File");
 
             return "fileupload";
@@ -83,10 +85,10 @@ public class FileUploadController extends BaseFormController {
             dirPath.mkdirs();
         }
 
-        //retrieve the file data
+        // retrieve the file data
         InputStream stream = file.getInputStream();
 
-        //write the file to the file specified
+        // write the file to the file specified
         OutputStream bos = new FileOutputStream(uploadDir + file.getOriginalFilename());
         int bytesRead;
         byte[] buffer = new byte[8192];
@@ -97,7 +99,7 @@ public class FileUploadController extends BaseFormController {
 
         bos.close();
 
-        //close the stream
+        // close the stream
         stream.close();
 
         // place the data into the request for retrieval on next page

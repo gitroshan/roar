@@ -3,6 +3,7 @@
 <head>
     <title><fmt:message key="userProfile.title"/></title>
     <meta name="menu" content="UserMenu"/>
+    <meta name="currentPage" content="UserForm"/>
 </head>
 
 <content tag="breadcrumb">

@@ -330,6 +330,7 @@
 
         <!-- Main content -->
         <section class="content">
+        	<%@ include file="/common/messages.jsp"%>
         	 <!-- Your Page Content Here -->
         	<decorator:body/>
          </section><!-- /.content -->
